@@ -1,8 +1,8 @@
 package router
 
 import (
-	"socketserver/controller"
-	"socketserver/httpparser"
+	"github.com/2019cloudcomputingpractices/socketserver/controller"
+	"github.com/2019cloudcomputingpractices/socketserver/httpparser"
 )
 
 func HandleMessage(mess *httpparser.RequestMessage) string {

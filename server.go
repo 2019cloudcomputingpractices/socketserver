@@ -11,21 +11,10 @@ import (
 	"fmt"
 	"log"
 	"net"
-	"socketserver/httpparser"
-	"socketserver/router"
+
+	"github.com/2019cloudcomputingpractices/socketserver/httpparser"
+	"github.com/2019cloudcomputingpractices/socketserver/router"
 )
-
-var content = `HTTP/1.1 200 OK
-Date: Sat, 29 Jul 2017 06:18:23 GMT
-Content-Type: text/html
-Connection: Keep-Alive
-Server: BWS/1.1
-X-UA-Compatible: IE=Edge,chrome=1
-BDPAGETYPE: 3
-Set-Cookie: BDSVRTM=0; path=/
-
-test
-`
 
 func Handle_conn(conn net.Conn) { //这个是在处理客户端会阻塞。
 	//fmt.Println("handle one connection")
@@ -45,7 +34,7 @@ func Handle_conn(conn net.Conn) { //这个是在处理客户端会阻塞。
 		return
 	}
 	fmt.Println(string(mess.GetBody()))
-	content = router.HandleMessage(&mess)
+	content := router.HandleMessage(&mess)
 	//fmt.Println("the return content is:")
 	//fmt.Println(content)
 	conn.Write([]byte(content)) //将html的代码返回给客户端，这样客户端在web上访问就可以拿到指定字符。

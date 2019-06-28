@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
-	"socketserver/httpparser"
-	"socketserver/model"
 	"text/template"
+
+	"github.com/2019cloudcomputingpractices/socketserver/httpparser"
+	"github.com/2019cloudcomputingpractices/socketserver/model"
 )
 
 func HandleRegister(mess *httpparser.RequestMessage) string {
